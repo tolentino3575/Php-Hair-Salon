@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Super Good Hair for You</h1>
+            {% if stylists is not empty %}
+            <h4>Here is a list of our stylists:<h4>
+            <ul>
+                {% for stylist in stylists %}
+                <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        <h4>Add a stylist:<h4>
+            <form action="/stylists" method="post">
+                <label for="stylist_name">Stylist Name:</label>
+                <input name ="stylist_name" type="text" required>
+                <button type="submit">Add</button>
+            </form>
+
+        <h4>Clear Stylists List<h4>
+            
+
+    </body>
+</html>
