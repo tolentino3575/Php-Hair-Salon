@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h2>Edit {{ stylist.getName }}'s name!</h2>
+            <form action="/stylists/{{ stylist.getId }}" method="post">
+                <input name="_method" type="hidden" value="patch">
+
+                <label for="new_name">Edit name:</label>
+                <input id="new_name" name="new_name" type="text" required>
+
+                <button type="submit">Edit</button>
+            </form>
+
+            <a href="/">Home</a>
+
+    </body>
+</html>

@@ -34,6 +34,18 @@
         return $app['twig']->render('clients.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
+    $app->get("/stylists/{id}/edit", function($id) use ($app){
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
+    });
+
+    $app->patch("/stylists/{id}", function($id) use ($app){
+        $new_name = $_POST['new_name'];
+        $stylist = Stylist::find($id);
+        $stylist->update($new_name);
+        return $app['twig']->render('clients.html.twig', array('stylist'=>$stylist));
+    });
+
     $app->post("/client_add", function() use ($app){
         $name = $_POST['client_name'];
         $client_id = $_POST['client_id'];
