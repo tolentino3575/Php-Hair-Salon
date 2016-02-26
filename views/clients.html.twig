@@ -9,10 +9,27 @@
 
         {% if clients is not empty %}
             <h4>Here is a list of clients {{ stylist.getName }} serves:<h4>
-                <ul>
+            <ul>
                 {% for client in clients %}
                     <li>{{ client.getName }}</li>
                 {% endfor %}
+            </ul>
         {% endif %}
+
+        {% if clients is empty %}
+            <h4>{{ stylist.getName }} does not have any clients. Would you like to schedule an appointment with {{ stylist.getName }}?</h4>
+        {% endif %}
+
+        <h4>Add a client for {{ stylist.getName }}:<h4>
+            <form action="/client_add" method="post">
+                <input name="client_id" type="hidden" value="{{ stylist.getId() }}">
+
+                <label for="client_name">Client Name:</label>
+                <input name ="client_name" type="text" required>
+
+                <button type="submit">Add</button>
+            </form>
+
+        <p><a href='/'>Home</a></p>
     </body>
 </html>
