@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/styles.css'>
         <meta charset="utf-8">
         <title></title>
     </head>
     <body>
-        <h1>Super Good and Nice Hair for You</h1>
-            {% if stylists is not empty %}
-            <h4>Here is a list of our stylists:<h4>
-            <ul>
-                {% for stylist in stylists %}
-                <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+        <div class="container">
+            <h1>Super Good and Nice Hair for You</h1>
+                {% if stylists is not empty %}
+                <h4>Here is a list of our stylists:<h4>
+                <ul>
+                    {% for stylist in stylists %}
+                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
 
-        <h4>Add a stylist:<h4>
-            <form action="/stylists" method="post">
-                <label for="stylist_name">Stylist Name:</label>
-                <input name ="stylist_name" type="text" required>
-                <button type="submit">Add</button>
-            </form>
+            <h4>Add a stylist:<h4>
+                <form action="/stylists" method="post">
+                    <label for="stylist_name">Stylist Name:</label>
+                    <input name ="stylist_name" type="text" required>
+                    <button class="btn btn-danger" type="submit">Add</button>
+                </form>
 
-        <h4>Clear Stylists List<h4>
-            <form action="/delete_stylists" method="post">
-                <button type='submit'>Clear</button>
-            </form>
-
+            <h4>Clear Stylists List<h4>
+                <form action="/delete_stylists" method="post">
+                    <button class="btn btn-danger" type='submit'>Clear</button>
+                </form>
+        </div>
     </body>
 </html>

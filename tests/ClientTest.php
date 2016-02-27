@@ -136,6 +136,21 @@
             $this->assertEquals($test_client, $result);
         }
 
+        function test_update()
+        {
+            $name = "Patty";
+            $id = null;
+            $test_client = new Client($name, $id);
+            $test_client->save();
+
+            $new_name = "Pat";
+
+            //Act
+            $test_client->update($new_name);
+
+            //Assert
+            $this->assertEquals("Pat", $test_client->getName());
+        }
 
     }
 

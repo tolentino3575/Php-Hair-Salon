@@ -8,17 +8,15 @@
     </head>
     <body>
         <div class="container">
-            <h2>Edit {{ stylist.getName }}'s name!</h2>
-                <form action="/stylists/{{ stylist.getId }}" method="post">
+            <h2>Edit {{ client.getName }}'s name!</h2>
+                <form action="/clients/{{ client.getId }}" method="post">
                     <input name="_method" type="hidden" value="patch">
 
                     <label for="new_name">Edit name:</label>
                     <input id="new_name" name="new_name" type="text" required>
 
-                    <button class="btn btn-danger" type="submit">Edit</button>
+                    <button class="btn btn-danger"  type="submit">Edit</button>
                 </form>
-
-                <a href="/">Home</a>
         </div>
     </body>
 </html>

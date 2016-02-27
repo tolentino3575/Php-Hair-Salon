@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/styles.css'>
         <meta charset="utf-8">
         <title></title>
     </head>
     <body>
-        <h1>{{ stylist.getName }}</h1>
-        <h4><a href="/stylists/{{ stylist.getId }}/edit">Edit the name of this stylist</a></h4>
+        <div class="container">
+            <h1>{{ stylist.getName }}</h1>
+            <h4><a href="/stylists/{{ stylist.getId }}/edit">Edit the name of this stylist</a></h4>
 
-        {% if clients is not empty %}
-            <h4>Here is a list of clients {{ stylist.getName }} serves:<h4>
-            <ul>
-                {% for client in clients %}
-                    <li>{{ client.getName }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+            {% if clients is not empty %}
+                <h4>Here is a list of clients {{ stylist.getName }} serves:<h4>
+                <ul>
+                    {% for client in clients %}
+                        <li><a href="/clients/{{ client.getId }}">{{ client.getName }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
-        {% if clients is empty %}
-            <h4>{{ stylist.getName }} does not have any clients. Would you like to schedule an appointment with {{ stylist.getName }}?</h4>
-        {% endif %}
+            {% if clients is empty %}
+                <h4>{{ stylist.getName }} does not have any clients. Would you like to schedule an appointment with {{ stylist.getName }}?</h4>
+            {% endif %}
 
-        <h4>Add a client for {{ stylist.getName }}:<h4>
-            <form action="/client_add" method="post">
-                <input name="client_id" type="hidden" value="{{ stylist.getId() }}">
+            <h4>Add a client for {{ stylist.getName }}:<h4>
+                <form action="/client_add" method="post">
+                    <input name="client_id" type="hidden" value="{{ stylist.getId() }}">
 
-                <label for="client_name">Client Name:</label>
-                <input name ="client_name" type="text" required>
+                    <label for="client_name">Client Name:</label>
+                    <input name ="client_name" type="text" required>
 
-                <button type="submit">Add</button>
-            </form>
+                    <button class="btn btn-danger"  type="submit">Add</button>
+                </form>
 
-        <p><a href='/'>Home</a></p>
+            <p><a href='/'>Home</a></p>
+        </div>
     </body>
 </html>
