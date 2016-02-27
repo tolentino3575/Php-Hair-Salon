@@ -70,7 +70,7 @@
     $app->delete("/clients/{id}", function($id) use ($app){
         $client = Client::find($id);
         $client->delete();
-        return $app['twig']->render('clients.html.twig', array('clients'=>$client));
+        return $app['twig']->render('clients.html.twig', array('clients'=>$client, 'stylist'=>Stylist::getAll()));
     });
 
     return $app;
