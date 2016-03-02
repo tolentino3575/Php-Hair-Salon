@@ -73,6 +73,22 @@
             return $found_client;
         }
 
+        function getStylist()
+        {
+            $found_stylist = null;
+            $stylists = Stylist::getAll();
+            foreach($stylists as $stylist)
+                {
+                    $stylist_id = $stylist->getId();
+                    if($stylist_id == $this->getClientId())
+                    {
+                        $found_stylist = $stylist;
+                    }
+                }
+                return $found_stylist;
+
+        }
+
         function update($new_name)
         {
             $GLOBALS['DB']->exec("UPDATE clients SET name = '{$new_name}' WHERE id = {$this->getId()};");

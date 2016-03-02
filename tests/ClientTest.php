@@ -40,6 +40,7 @@
             $name = "Patty";
             $id = 1;
             $test_client = new Client($name, $id);
+            $test_client->save();
 
             //Act
             $result = $test_client->getId();
