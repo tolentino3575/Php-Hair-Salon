@@ -1,5 +1,5 @@
 #Hair Salon Code Review
-PHP week 3 code review: Database Basics
+PHP week 3 code review: Database Basic
 
 ##Author
 
